@@ -7,12 +7,20 @@ public class CakeModel {
     public boolean frosting = true;
     public boolean candles = true;
 
-    public void toggleLit(){
-        if(candlesLit) {
-            candlesLit = false;
-        } else {
-            candlesLit = true;
-        }
+    public void candlesBlow() {
+        candlesLit = false;
+    }
+
+    public void candlesToggle() {
+        candles = !candles;
+    }
+
+    public void frostingToggle() {
+        frosting = !frosting;
+    }
+
+    public void candleCount(int progress) {
+        candleCount = progress;
     }
 
 }
