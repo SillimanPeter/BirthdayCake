@@ -22,8 +22,10 @@ public class MainActivity extends AppCompatActivity {
         blowOut.setOnClickListener(cakeController);
     }
 
-    public void goodbye(View button){
+    public void goodbye(View button)
+    {
         Log.i("button","Goodbye");
+        finishAffinity();
     }
 
 }
