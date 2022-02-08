@@ -25,18 +25,19 @@ public class CakeController implements  View.OnClickListener,
         cakeView.invalidate();
     }
 
-  /*  public void onCheckedChanged(CompoundButton viewButt, boolean isChecked)
+    public void onCheckedChanged(CompoundButton viewButt, boolean isChecked)
     {
-        if(viewButt.getId() = cakeView.findViewById(R.id.candlesSwitch).getId()) {
+        //if(/*is viewbutt the candleSwitch view or frostingSwitch view? */) {
             Log.d("Candles", "Clicked");
             model.candlesToggle();
+            //viewButt.findViewById(R.id.blowOut).setText("Re-light");
             cakeView.invalidate();
-        } else {
+       // } else {
             Log.d("Frosting", "Clicked");
             model.frostingToggle();
             cakeView.invalidate();
-        }
-    }*/
+        //}
+    }
 
     public void onProgressChanged(SeekBar viewSlider, int progress, boolean fromUser)
     {

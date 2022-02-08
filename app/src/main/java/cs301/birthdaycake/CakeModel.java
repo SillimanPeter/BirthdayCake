@@ -8,7 +8,7 @@ public class CakeModel {
     public boolean candles = true;
 
     public void candlesBlow() {
-        candlesLit = false;
+        candlesLit = !candlesLit;
     }
 
     public void candlesToggle() {

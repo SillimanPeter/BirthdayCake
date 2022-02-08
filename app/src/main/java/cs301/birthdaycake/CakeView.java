@@ -17,6 +17,7 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    private int num;
 
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
@@ -108,14 +109,16 @@ public class CakeView extends SurfaceView {
     {
         //top and bottom are used to keep a running tally as we progress down the cake layers
         float top = cakeTop;
-        float bottom = cakeTop + frostHeight;
+        float bottom = cakeTop +frostHeight;
+
 
         //Frosting on top
         if(model.frosting) {
             canvas.drawRect(cakeLeft, top, cakeLeft + cakeWidth, bottom, frostingPaint);
             top += frostHeight;
-            bottom += layerHeight;
         }
+        bottom += layerHeight;
+
 
         //Then a cake layer
         canvas.drawRect(cakeLeft, top, cakeLeft + cakeWidth, bottom, cakePaint);
@@ -126,15 +129,22 @@ public class CakeView extends SurfaceView {
         if(model.frosting) {
             canvas.drawRect(cakeLeft, top, cakeLeft + cakeWidth, bottom, frostingPaint);
             top += frostHeight;
-            bottom += layerHeight;
         }
+        bottom += layerHeight;
+
 
         //Then a second cake layer
         canvas.drawRect(cakeLeft, top, cakeLeft + cakeWidth, bottom, cakePaint);
 
         //Now a candle in the center
-        drawCandle(canvas, cakeLeft + cakeWidth/3 - candleWidth/3, cakeTop);
-        drawCandle(canvas, cakeLeft + 2*cakeWidth/3 - 2*candleWidth/3, cakeTop);
+
+        num = model.candleCount;
+        for(int i = 1; i <= num; i++) {
+            drawCandle(canvas, cakeLeft + i*cakeWidth/(num + 1)
+                                            - i*candleWidth/(num + 1), cakeTop);
+        }
+        //drawCandle(canvas, cakeLeft + cakeWidth/3 - candleWidth/3, cakeTop);
+        //drawCandle(canvas, cakeLeft + 2*cakeWidth/3 - 2*candleWidth/3, cakeTop);
 
         Log.d("onDraw", "has been called");
     }//onDraw
